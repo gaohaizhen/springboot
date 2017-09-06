@@ -18,9 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 
-    public User(String userName) {
-        this.userName = userName;
-    }
+
 
     private  String userName;
 

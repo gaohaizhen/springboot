@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.demo</groupId>
+	<artifactId>spring-demo</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+	<url>http://maven.apache.org</url>
 
 	<name>spring-demo</name>
 	<description>Demo project for Spring Boot</description>
 
 
-	<groupId>com.demo</groupId>
-	<artifactId>spring-demo</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
-
-
-	<url>http://maven.apache.org</url>
 
 	<modules>
-		<module>spring-parent</module>
 		<module>spring-boot</module>
 		<module>auto-configuration</module>
 	</modules>
 
-	<!--也可以使用<dependencyManagement>元素 -->
-	<!-- <parent> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-parent</artifactId> 
-		<version>1.5.6.RELEASE</version> <relativePath/> </parent> -->
 
 
 	<properties>
@@ -32,20 +28,63 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>1.5.6.RELEASE</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 
+	<repositories>
+		<repository>
+			<id>nexus-releases</id>
+			<url>http://198.11.174.75:8081/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>nexus-snapshots</id>
+			<url>http://198.11.174.75:8081/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>nexus-releases</id>
+			<url>http://198.11.174.75:8081/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>nexus-snapshots</id>
+			<url>http://198.11.174.75:8081/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
 
-
-	<!-- <repositories> <repository> <id>nexus-releases</id> <url>http://198.11.174.75:8081/nexus/content/groups/public/</url> 
-		<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>false</enabled> 
-		</snapshots> </repository> <repository> <id>nexus-snapshots</id> <url>http://198.11.174.75:8081/nexus/content/groups/public/</url> 
-		<releases> <enabled>false</enabled> </releases> <snapshots> <enabled>true</enabled> 
-		</snapshots> </repository> </repositories> <pluginRepositories> <pluginRepository> 
-		<id>nexus-releases</id> <url>http://198.11.174.75:8081/nexus/content/groups/public/</url> 
-		<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>false</enabled> 
-		</snapshots> </pluginRepository> <pluginRepository> <id>nexus-snapshots</id> 
-		<url>http://198.11.174.75:8081/nexus/content/groups/public/</url> <releases> 
-		<enabled>false</enabled> </releases> <snapshots> <enabled>true</enabled> 
-		</snapshots> </pluginRepository> </pluginRepositories> -->
 </project>
