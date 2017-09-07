@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.demo.acmespringbootstarterredis.MyEnableRedis;
+import com.demo.starter.redis.MyEnableRedis;
 
 import redis.clients.jedis.Jedis;
 
@@ -41,6 +41,10 @@ public class SpringBootJdbcApplication {
 		Jedis jedis = context.getBean(Jedis.class);
         // jedis.set("id123","123");
 
-        System.out.println(jedis.get("id123"));
+        System.out.println(jedis.keys("*"));
+
+
+
+
 	}
 }

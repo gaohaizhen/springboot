@@ -1,4 +1,4 @@
-package com.demo.acmespringbootstarterredis;
+package com.demo.starter.redis;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

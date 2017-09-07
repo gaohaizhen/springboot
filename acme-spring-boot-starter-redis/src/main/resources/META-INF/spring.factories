@@ -1,1 +1,1 @@
-#org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.demo.acmespringbootstarterredis.MyRedisAutoConfiguration
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.demo.starter.redis.MyRedisAutoConfiguration
