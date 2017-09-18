@@ -19,7 +19,8 @@
 		<module>spring-boot</module>
 		<module>auto-configuration</module>
 		<module>spring-boot-advanced</module>
-	</modules>
+        <module>amqp</module>
+    </modules>
 
 
 
