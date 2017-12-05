@@ -26,15 +26,19 @@ public class Sender {
         Channel channel = connection.createChannel();
 //Declaring a queue is idempotent（幂等的） - it will only be created if it doesn't exist already
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        String message = "Hello World!";
+
 
         AMQP.BasicProperties basicProperties = new AMQP.BasicProperties.Builder().expiration("2000")
                 .replyTo("192.168.12.36").contentEncoding("utf-8").contentType("").build();
 
         int i = 0;
         while (i != 10000) {
+            String message = "Hello World!";
             Thread.sleep(2000);
+            ++i;
+            message = message+i;
             channel.basicPublish("", QUEUE_NAME, basicProperties, message.getBytes("UTF-8"));
+
             System.out.println(" [x] Sent '" + message + "'");
         }
         channel.close();

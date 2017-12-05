@@ -23,10 +23,14 @@ public class EmitLog {
 
     channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.FANOUT);
 
-    String message = getMessage(argv);
+    int i=0;
+    while(i<10000){
+      String message = getMessage(argv)+(++i);
+      Thread.sleep(3000l);
+      channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes("UTF-8"));
+      System.out.println(" [x] Sent '" + message + "'");
+    }
 
-    channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes("UTF-8"));
-    System.out.println(" [x] Sent '" + message + "'");
 
     channel.close();
     connection.close();
