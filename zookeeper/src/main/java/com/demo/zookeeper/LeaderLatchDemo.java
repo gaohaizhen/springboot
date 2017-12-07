@@ -14,14 +14,14 @@ import java.util.List;
 /**
  * leader选举
  * LeaderLatch失去leader后不能再参与选举，而LeaderSelector失去leader后可以重新参与选举
- *
+ * <p>
  * http://blog.csdn.net/wo541075754/article/details/70216046
  */
 public class LeaderLatchDemo {
 
-    private static final String leader = "/leader";
+    private static final String LEADER_PATH = "/zktest/leader";
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         List<LeaderLatch> latchList = new ArrayList<>();
         List<CuratorFramework> clients = new ArrayList<>();
@@ -30,7 +30,7 @@ public class LeaderLatchDemo {
                 CuratorFramework client = getClient();
                 clients.add(client);
 
-                final LeaderLatch leaderLatch = new LeaderLatch(client, leader, "client#" + i);
+                final LeaderLatch leaderLatch = new LeaderLatch(client, LEADER_PATH, "client#" + i);
                 leaderLatch.addListener(new LeaderLatchListener() {
                     @Override
                     public void isLeader() {
