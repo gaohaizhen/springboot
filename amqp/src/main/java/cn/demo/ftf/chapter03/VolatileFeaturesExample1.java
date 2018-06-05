@@ -1,19 +1,19 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 class VolatileFeaturesExample1 {
-    long vl = 0L; // 64位的long型普通变量
+    long vl = 0L; // 64位锟斤拷long锟斤拷锟斤拷通锟斤拷锟斤拷
 
-    public synchronized void set(long l) {//对单个的普通变量的写用同一个锁同步
+    public synchronized void set(long l) {//锟皆碉拷锟斤拷锟斤拷锟斤拷通锟斤拷锟斤拷锟斤拷写锟斤拷同一锟斤拷锟斤拷同锟斤拷
         vl = l;
     }
 
-    public void getAndIncrement() { //普通方法调用
-        long temp = get(); //调用已同步的读方法
-        temp += 1L; //普通写操作
-        set(temp); //调用已同步的写方法
+    public void getAndIncrement() { //锟斤拷通锟斤拷锟斤拷锟斤拷锟斤拷
+        long temp = get(); //锟斤拷锟斤拷锟斤拷同锟斤拷锟侥讹拷锟斤拷锟斤拷
+        temp += 1L; //锟斤拷通写锟斤拷锟斤拷
+        set(temp); //锟斤拷锟斤拷锟斤拷同锟斤拷锟斤拷写锟斤拷锟斤拷
     }
 
-    public synchronized long get() { //对单个的普通变量的读用同一个锁同步
+    public synchronized long get() { //锟皆碉拷锟斤拷锟斤拷锟斤拷通锟斤拷锟斤拷锟侥讹拷锟斤拷同一锟斤拷锟斤拷同锟斤拷
         return vl;
     }
 }

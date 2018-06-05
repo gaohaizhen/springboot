@@ -1,4 +1,4 @@
-package cn.itcast.thread.read;
+package cn.demo.thread.read;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

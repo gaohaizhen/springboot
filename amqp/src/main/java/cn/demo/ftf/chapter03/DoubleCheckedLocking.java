@@ -1,13 +1,13 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 public class DoubleCheckedLocking { //1
     private static Instance instance; //2
 
     public static Instance getInstance() { //3
-        if (instance == null) { //4:µÚÒ»´Î¼ì²é
-            synchronized (DoubleCheckedLocking.class) { //5:¼ÓËø
-                if (instance == null) //6:µÚ¶þ´Î¼ì²é
-                    instance = new Instance(); //7:ÎÊÌâµÄ¸ùÔ´³öÔÚÕâÀï
+        if (instance == null) { //4:ï¿½ï¿½Ò»ï¿½Î¼ï¿½ï¿½
+            synchronized (DoubleCheckedLocking.class) { //5:ï¿½ï¿½ï¿½ï¿½
+                if (instance == null) //6:ï¿½Ú¶ï¿½ï¿½Î¼ï¿½ï¿½
+                    instance = new Instance(); //7:ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             } //8
         } //9
         return instance; //10

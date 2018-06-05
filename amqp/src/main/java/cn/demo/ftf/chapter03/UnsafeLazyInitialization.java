@@ -1,11 +1,11 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 public class UnsafeLazyInitialization {
     private static Instance instance;
 
     public static Instance getInstance() {
-        if (instance == null) //1£ºAÏß³ÌÖ´ÐÐ
-            instance = new Instance(); //2£ºBÏß³ÌÖ´ÐÐ
+        if (instance == null) //1ï¿½ï¿½Aï¿½ß³ï¿½Ö´ï¿½ï¿½
+            instance = new Instance(); //2ï¿½ï¿½Bï¿½ß³ï¿½Ö´ï¿½ï¿½
         return instance;
     }
 

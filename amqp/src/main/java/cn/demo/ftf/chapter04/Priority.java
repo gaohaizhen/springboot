@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 public class SafeLazyInitialization {
     private static Instance instance;

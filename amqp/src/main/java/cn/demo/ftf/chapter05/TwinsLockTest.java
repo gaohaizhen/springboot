@@ -1,11 +1,12 @@
 /**
  * 
  */
-package chapter05;
+package cn.demo.ftf.chapter05;
 
 import java.util.concurrent.locks.Lock;
 
-import chapter04.SleepUtils;
+import cn.demo.ftf.chapter04.SleepUtils;
+
 
 /**
  * 10-11
@@ -28,13 +29,13 @@ public class TwinsLockTest {
                 }
             }
         }
-        // Æô¶¯10¸öÏß³Ì
+        // ï¿½ï¿½ï¿½ï¿½10ï¿½ï¿½ï¿½ß³ï¿½
         for (int i = 0; i < 10; i++) {
             Worker w = new Worker();
             w.setDaemon(true);
             w.start();
         }
-        // Ã¿¸ô1Ãë»»ÐÐ
+        // Ã¿ï¿½ï¿½1ï¿½ë»»ï¿½ï¿½
         for (int i = 0; i < 10; i++) {
             SleepUtils.second(1);
             System.out.println();

@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.util.concurrent.TimeUnit;
 
@@ -8,21 +8,21 @@ import java.util.concurrent.TimeUnit;
 public class Interrupted {
 
     public static void main(String[] args) throws Exception {
-        // sleepThread²»Í£µÄ³¢ÊÔË¯Ãß
+        // sleepThreadï¿½ï¿½Í£ï¿½Ä³ï¿½ï¿½ï¿½Ë¯ï¿½ï¿½
         Thread sleepThread = new Thread(new SleepRunner(), "SleepThread");
         sleepThread.setDaemon(true);
-        // busyThread²»Í£µÄÔËÐÐ
+        // busyThreadï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Thread busyThread = new Thread(new BusyRunner(), "BusyThread");
         busyThread.setDaemon(true);
         sleepThread.start();
         busyThread.start();
-        // ÐÝÃß5Ãë£¬ÈÃsleepThreadºÍbusyThread³ä·ÖÔËÐÐ
+        // ï¿½ï¿½ï¿½ï¿½5ï¿½ë£¬ï¿½ï¿½sleepThreadï¿½ï¿½busyThreadï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         TimeUnit.SECONDS.sleep(5);
         sleepThread.interrupt();
         busyThread.interrupt();
         System.out.println("SleepThread interrupted is " + sleepThread.isInterrupted());
         System.out.println("BusyThread interrupted is " + busyThread.isInterrupted());
-        // ·ÀÖ¹sleepThreadºÍbusyThreadÁ¢¿ÌÍË³ö
+        // ï¿½ï¿½Ö¹sleepThreadï¿½ï¿½busyThreadï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½
         TimeUnit.SECONDS.sleep(2);
     }
 

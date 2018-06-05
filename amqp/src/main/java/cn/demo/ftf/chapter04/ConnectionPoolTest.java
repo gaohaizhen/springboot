@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.sql.Connection;
 import java.util.concurrent.CountDownLatch;
@@ -9,13 +9,13 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class ConnectionPoolTest {
     static ConnectionPool pool  = new ConnectionPool(10);
-    // ±£Ö¤ËùÓÐConnectionRunnerÄÜ¹»Í¬Ê±¿ªÊ¼
+    // ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ConnectionRunnerï¿½Ü¹ï¿½Í¬Ê±ï¿½ï¿½Ê¼
     static CountDownLatch start = new CountDownLatch(1);
-    // mainÏß³Ì½«»áµÈ´ýËùÓÐConnectionRunner½áÊøºó²ÅÄÜ¼ÌÐøÖ´ÐÐ
+    // mainï¿½ß³Ì½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ConnectionRunnerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
     static CountDownLatch end;
 
     public static void main(String[] args) throws Exception {
-        // Ïß³ÌÊýÁ¿£¬¿ÉÒÔÏß³ÌÊýÁ¿½øÐÐ¹Û²ì
+        // ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹Û²ï¿½
         int threadCount = 50;
         end = new CountDownLatch(threadCount);
         int count = 20;
@@ -51,8 +51,8 @@ public class ConnectionPoolTest {
             }
             while (count > 0) {
                 try {
-                    // ´ÓÏß³Ì³ØÖÐ»ñÈ¡Á¬½Ó£¬Èç¹û1000msÄÚÎÞ·¨»ñÈ¡µ½£¬½«»á·µ»Ønull
-                    // ·Ö±ðÍ³¼ÆÁ¬½Ó»ñÈ¡µÄÊýÁ¿gotºÍÎ´»ñÈ¡µ½µÄÊýÁ¿notGot
+                    // ï¿½ï¿½ï¿½ß³Ì³ï¿½ï¿½Ð»ï¿½È¡ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½1000msï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á·µï¿½ï¿½null
+                    // ï¿½Ö±ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½Ó»ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gotï¿½ï¿½Î´ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½notGot
                     Connection connection = pool.fetchConnection(1000);
                     if (connection != null) {
                         try {

@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -13,7 +13,7 @@ public class ThreadState {
     public static void main(String[] args) {
         new Thread(new TimeWaiting(), "TimeWaitingThread").start();
         new Thread(new Waiting(), "WaitingThread").start();
-        // 使用两个Blocked线程，一个获取锁成功，另一个被阻塞
+        // 使锟斤拷锟斤拷锟斤拷Blocked锟竭程ｏ拷一锟斤拷锟斤拷取锟斤拷锟缴癸拷锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷锟斤拷
         new Thread(new Blocked(), "BlockedThread-1").start();
         new Thread(new Blocked(), "BlockedThread-2").start();
         new Thread(new Sync(), "SyncThread-1").start();
@@ -21,7 +21,7 @@ public class ThreadState {
     }
 
     /**
-     * 该线程不断的进行睡眠
+     * 锟斤拷锟竭程诧拷锟较的斤拷锟斤拷睡锟斤拷
      */
     static class TimeWaiting implements Runnable {
         @Override
@@ -33,7 +33,7 @@ public class ThreadState {
     }
 
     /**
-     * 该线程在Waiting.class实例上等待
+     * 锟斤拷锟竭筹拷锟斤拷Waiting.class实锟斤拷锟较等达拷
      */
     static class Waiting implements Runnable {
         @Override
@@ -51,7 +51,7 @@ public class ThreadState {
     }
 
     /**
-     * 该线程在Blocked.class实例上加锁后，不会释放该锁
+     * 锟斤拷锟竭筹拷锟斤拷Blocked.class实锟斤拷锟较硷拷锟斤拷锟襟，诧拷锟斤拷锟酵放革拷锟斤拷
      */
     static class Blocked implements Runnable {
         public void run() {

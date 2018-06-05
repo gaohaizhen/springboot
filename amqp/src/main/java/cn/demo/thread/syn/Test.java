@@ -1,4 +1,4 @@
-package cn.itcast.thread.syn;
+package cn.demo.thread.syn;
 
 import java.util.ArrayList;
 import java.util.Iterator;

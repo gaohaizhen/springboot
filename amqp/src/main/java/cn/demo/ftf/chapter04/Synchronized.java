@@ -1,15 +1,15 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 /**
  * 6-10
  */
 public class Synchronized {
     public static void main(String[] args) {
-        // ¶ÔSynchronized Class¶ÔÏó½øÐÐ¼ÓËø
+        // ï¿½ï¿½Synchronized Classï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
         synchronized (Synchronized.class) {
 
         }
-        // ¾²Ì¬Í¬²½·½·¨£¬¶ÔSynchronized Class¶ÔÏó½øÐÐ¼ÓËø
+        // ï¿½ï¿½Ì¬Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Synchronized Classï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
         m();
     }
 

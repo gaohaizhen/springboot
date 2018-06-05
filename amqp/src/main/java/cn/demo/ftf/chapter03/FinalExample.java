@@ -1,22 +1,22 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 public class FinalExample {
-    int                 i;  //ÆÕÍ¨±äÁ¿
-    final int           j;  //final±äÁ¿
+    int                 i;  //ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½
+    final int           j;  //finalï¿½ï¿½ï¿½ï¿½
     static FinalExample obj;
 
-    public FinalExample() { //¹¹Ôìº¯Êý
-        i = 1; //Ð´ÆÕÍ¨Óò
-        j = 2; //Ð´finalÓò
+    public FinalExample() { //ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
+        i = 1; //Ð´ï¿½ï¿½Í¨ï¿½ï¿½
+        j = 2; //Ð´finalï¿½ï¿½
     }
 
-    public static void writer() { //Ð´Ïß³ÌAÖ´ÐÐ
+    public static void writer() { //Ð´ï¿½ß³ï¿½AÖ´ï¿½ï¿½
         obj = new FinalExample();
     }
 
-    public static void reader() { //¶ÁÏß³ÌBÖ´ÐÐ
-        FinalExample object = obj; //¶Á¶ÔÏóÒýÓÃ
-        int a = object.i; //¶ÁÆÕÍ¨Óò
-        int b = object.j; //¶ÁfinalÓò
+    public static void reader() { //ï¿½ï¿½ï¿½ß³ï¿½BÖ´ï¿½ï¿½
+        FinalExample object = obj; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        int a = object.i; //ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½
+        int b = object.j; //ï¿½ï¿½finalï¿½ï¿½
     }
 }

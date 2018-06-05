@@ -1,4 +1,4 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -7,21 +7,21 @@ class ReentrantLockExample {
     ReentrantLock lock = new ReentrantLock();
 
     public void writer() {
-        lock.lock(); //»ñÈ¡Ëø
+        lock.lock(); //ï¿½ï¿½È¡ï¿½ï¿½
         try {
             a++;
         } finally {
-            lock.unlock(); //ÊÍ·ÅËø
+            lock.unlock(); //ï¿½Í·ï¿½ï¿½ï¿½
         }
     }
 
     public void reader() {
-        lock.lock(); //»ñÈ¡Ëø
+        lock.lock(); //ï¿½ï¿½È¡ï¿½ï¿½
         try {
             int i = a;
-            //¡­¡­
+            //ï¿½ï¿½ï¿½ï¿½
         } finally {
-            lock.unlock(); //ÊÍ·ÅËø
+            lock.unlock(); //ï¿½Í·ï¿½ï¿½ï¿½
         }
     }
 }

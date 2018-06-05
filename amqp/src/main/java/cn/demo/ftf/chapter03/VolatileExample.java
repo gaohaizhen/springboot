@@ -1,4 +1,4 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 class VolatileExample {
     int              a    = 0;
@@ -12,7 +12,7 @@ class VolatileExample {
     public void reader() {
         if (flag) { //3
             int i = a; //4
-            //¡­¡­
+            //ï¿½ï¿½ï¿½ï¿½
         }
     }
 }

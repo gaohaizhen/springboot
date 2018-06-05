@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
@@ -10,11 +10,11 @@ import java.lang.management.ThreadMXBean;
 public class MultiThread {
 
     public static void main(String[] args) {
-        // 获取Java线程管理MXBean
+        // 锟斤拷取Java锟竭程癸拷锟斤拷MXBean
         ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
-        // 不需要获取同步的monitor和synchronizer信息，仅仅获取线程和线程堆栈信息
+        // 锟斤拷锟斤拷要锟斤拷取同锟斤拷锟斤拷monitor锟斤拷synchronizer锟斤拷息锟斤拷锟斤拷锟斤拷锟斤拷取锟竭程猴拷锟竭程讹拷栈锟斤拷息
         ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads(false, false);
-        // 遍历线程信息，仅打印线程ID和线程名称信息
+        // 锟斤拷锟斤拷锟竭筹拷锟斤拷息锟斤拷锟斤拷锟斤拷印锟竭筹拷ID锟斤拷锟竭筹拷锟斤拷锟斤拷锟斤拷息
         for (ThreadInfo threadInfo : threadInfos) {
             System.out.println("[" + threadInfo.getThreadId() + "] " + threadInfo.getThreadName());
         }

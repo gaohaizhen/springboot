@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.sql.Connection;
 import java.util.LinkedList;
@@ -21,17 +21,17 @@ public class ConnectionPool {
     public void releaseConnection(Connection connection) {
         if (connection != null) {
             synchronized (pool) {
-                // Ìí¼ÓºóÐèÒª½øÐÐÍ¨Öª£¬ÕâÑùÆäËûÏû·ÑÕßÄÜ¹»¸ÐÖªµ½Á´½Ó³ØÖÐÒÑ¾­¹é»¹ÁËÒ»¸öÁ´½Ó
+                // ï¿½ï¿½Óºï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Í¨Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½é»¹ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 pool.addLast(connection);
                 pool.notifyAll();
             }
         }
     }
 
-    // ÔÚmillsÄÚÎÞ·¨»ñÈ¡µ½Á¬½Ó£¬½«»á·µ»Ønull
+    // ï¿½ï¿½millsï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½á·µï¿½ï¿½null
     public Connection fetchConnection(long mills) throws InterruptedException {
         synchronized (pool) {
-            // ÍêÈ«³¬Ê±
+            // ï¿½ï¿½È«ï¿½ï¿½Ê±
             if (mills <= 0) {
                 while (pool.isEmpty()) {
                     pool.wait();

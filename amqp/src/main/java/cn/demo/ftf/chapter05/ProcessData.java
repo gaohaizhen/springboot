@@ -1,4 +1,4 @@
-package chapter05;
+package cn.demo.ftf.chapter05;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -15,23 +15,23 @@ public class ProcessData {
     public void processData() {
         readLock.lock();
         if (!update) {
-            // ±ØÐëÏÈÊÍ·Å¶ÁËø
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·Å¶ï¿½ï¿½ï¿½
             readLock.unlock();
-            // Ëø½µ¼¶´ÓÐ´Ëø»ñÈ¡µ½¿ªÊ¼
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê¼
             writeLock.lock();
             try {
                 if (!update) {
-                    // ×¼±¸Êý¾ÝµÄÁ÷³Ì£¨ÂÔ£©
+                    // ×¼ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½Ì£ï¿½ï¿½Ô£ï¿½
                     update = true;
                 }
                 readLock.lock();
             } finally {
                 writeLock.unlock();
             }
-            // Ëø½µ¼¶Íê³É£¬Ð´Ëø½µ¼¶Îª¶ÁËø
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
         }
         try {
-            // Ê¹ÓÃÊý¾ÝµÄÁ÷³Ì£¨ÂÔ£©
+            // Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½Ì£ï¿½ï¿½Ô£ï¿½
         } finally {
             readLock.unlock();
         }

@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -19,7 +19,7 @@ public class ConnectionDriver {
         }
     }
 
-    // ´´½¨Ò»¸öConnectionµÄ´úÀí£¬ÔÚcommitÊ±ÐÝÃß1Ãë
+    // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Connectionï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½commitÊ±ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½
     public static final Connection createConnection() {
         return (Connection) Proxy.newProxyInstance(ConnectionDriver.class.getClassLoader(), new Class<?>[] { Connection.class },
             new ConnectionHandler());

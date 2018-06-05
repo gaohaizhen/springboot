@@ -1,7 +1,7 @@
 /**
  * 
  */
-package chapter05;
+package cn.demo.ftf.chapter05;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class BoundedQueue<T> {
     private Object[]  items;
-    // 添加的下标，删除的下标和数组当前数量
+    // 锟斤拷拥锟斤拷卤辏撅拷锟斤拷锟斤拷卤锟斤拷锟斤拷锟介当前锟斤拷锟斤拷
     private int       addIndex, removeIndex, count;
     private Lock      lock     = new ReentrantLock();
     private Condition notEmpty = lock.newCondition();
@@ -22,7 +22,7 @@ public class BoundedQueue<T> {
         items = new Object[size];
     }
 
-    // 添加一个元素，如果数组满，则添加线程进入等待状态，直到有“空位”
+    // 锟斤拷锟揭伙拷锟皆拷兀锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷叱探锟斤拷锟饺达拷状态锟斤拷直锟斤拷锟叫★拷锟斤拷位锟斤拷
     public void add(T t) throws InterruptedException {
         lock.lock();
         try {
@@ -38,7 +38,7 @@ public class BoundedQueue<T> {
         }
     }
 
-    // 由头部删除一个元素，如果数组空，则删除线程进入等待状态，直到有新添加元素
+    // 锟斤拷头锟斤拷删锟斤拷一锟斤拷元锟截ｏ拷锟斤拷锟斤拷锟斤拷锟秸ｏ拷锟斤拷删锟斤拷锟竭程斤拷锟斤拷却锟阶刺拷锟街憋拷锟斤拷锟斤拷锟斤拷锟斤拷元锟斤拷
     @SuppressWarnings("unchecked")
     public T remove() throws InterruptedException {
         lock.lock();

@@ -1,4 +1,4 @@
-package chapter10;
+package cn.demo.ftf.chapter10;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
@@ -22,17 +22,17 @@ public class ConcurrentTask {
                         return taskName;
                     }
                 };
-                //1.2´´½¨ÈÎÎñ
+                //1.2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 FutureTask<String> futureTask = new FutureTask<String>(task);
                 future = taskCache.putIfAbsent(taskName, futureTask); //1.3
                 if (future == null) {
                     future = futureTask;
-                    futureTask.run(); //1.4Ö´ÐÐÈÎÎñ
+                    futureTask.run(); //1.4Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 }
             }
 
             try {
-                return future.get(); //1.5,2.2Ïß³ÌÔÚ´ËµÈ´ýÈÎÎñÖ´ÐÐÍê³É
+                return future.get(); //1.5,2.2ï¿½ß³ï¿½ï¿½Ú´ËµÈ´ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
             } catch (CancellationException e) {
                 taskCache.remove(taskName, future);
             }

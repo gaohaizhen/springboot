@@ -1,4 +1,4 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 public class InstanceFactory {
     private static class InstanceHolder {
@@ -6,7 +6,7 @@ public class InstanceFactory {
     }
 
     public static Instance getInstance() {
-        return InstanceHolder.instance; //这里将导致InstanceHolder类被初始化
+        return InstanceHolder.instance; //锟斤拷锟斤将锟斤拷锟斤拷InstanceHolder锟洁被锟斤拷始锟斤拷
     }
 
     static class Instance {

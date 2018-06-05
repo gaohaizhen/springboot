@@ -1,4 +1,4 @@
-package chapter05;
+package cn.demo.ftf.chapter05;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
@@ -9,16 +9,16 @@ import java.util.concurrent.locks.Lock;
  * 10-2
  */
 public class Mutex implements Lock {
-    // ¾²Ì¬ÄÚ²¿Àà£¬×Ô¶¨ÒåÍ¬²½Æ÷
+    // ï¿½ï¿½Ì¬ï¿½Ú²ï¿½ï¿½à£¬ï¿½Ô¶ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½
     private static class Sync extends AbstractQueuedSynchronizer {
         private static final long serialVersionUID = -4387327721959839431L;
 
-        // ÊÇ·ñ´¦ÓÚÕ¼ÓÃ×´Ì¬
+        // ï¿½Ç·ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½×´Ì¬
         protected boolean isHeldExclusively() {
             return getState() == 1;
         }
 
-        // µ±×´Ì¬Îª0µÄÊ±ºò»ñÈ¡Ëø
+        // ï¿½ï¿½×´Ì¬Îª0ï¿½ï¿½Ê±ï¿½ï¿½ï¿½È¡ï¿½ï¿½
         public boolean tryAcquire(int acquires) {
             assert acquires == 1; // Otherwise unused
             if (compareAndSetState(0, 1)) {
@@ -28,7 +28,7 @@ public class Mutex implements Lock {
             return false;
         }
 
-        // ÊÍ·ÅËø£¬½«×´Ì¬ÉèÖÃÎª0
+        // ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½Îª0
         protected boolean tryRelease(int releases) {
             assert releases == 1; // Otherwise unused
             if (getState() == 0)
@@ -38,13 +38,13 @@ public class Mutex implements Lock {
             return true;
         }
 
-        // ·µ»ØÒ»¸öCondition£¬Ã¿¸öcondition¶¼°üº¬ÁËÒ»¸öcondition¶ÓÁÐ
+        // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Conditionï¿½ï¿½Ã¿ï¿½ï¿½conditionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½conditionï¿½ï¿½ï¿½ï¿½
         Condition newCondition() {
             return new ConditionObject();
         }
     }
 
-    // ½öÐèÒª½«²Ù×÷´úÀíµ½SyncÉÏ¼´¿É
+    // ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Syncï¿½Ï¼ï¿½ï¿½ï¿½
     private final Sync sync = new Sync();
 
     public void lock() {

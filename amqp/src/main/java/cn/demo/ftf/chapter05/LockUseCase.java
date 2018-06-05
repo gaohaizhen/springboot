@@ -1,4 +1,4 @@
-package chapter05;
+package cn.demo.ftf.chapter05;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

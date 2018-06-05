@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,15 +16,15 @@ public class Deprecated {
         printThread.setDaemon(true);
         printThread.start();
         TimeUnit.SECONDS.sleep(3);
-        // ½«PrintThread½øÐÐÔÝÍ££¬Êä³öÄÚÈÝ¹¤×÷Í£Ö¹
+        // ï¿½ï¿½PrintThreadï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½Í£Ö¹
         printThread.suspend();
         System.out.println("main suspend PrintThread at " + format.format(new Date()));
         TimeUnit.SECONDS.sleep(20);
-        // ½«PrintThread½øÐÐ»Ö¸´£¬Êä³öÄÚÈÝ¼ÌÐø
+        // ï¿½ï¿½PrintThreadï¿½ï¿½ï¿½Ð»Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¼ï¿½ï¿½ï¿½
         printThread.resume();
         System.out.println("main resume PrintThread at " + format.format(new Date()));
         TimeUnit.SECONDS.sleep(3);
-        // ½«PrintThread½øÐÐÖÕÖ¹£¬Êä³öÄÚÈÝÍ£Ö¹
+        // ï¿½ï¿½PrintThreadï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£Ö¹
         printThread.stop();
         System.out.println("main stop PrintThread at " + format.format(new Date()));
         TimeUnit.SECONDS.sleep(3);

@@ -1,4 +1,4 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 class MonitorExample {
     int a = 0;
@@ -9,6 +9,6 @@ class MonitorExample {
 
     public synchronized void reader() { //4
         int i = a; //5
-        //¡­¡­
+        //ï¿½ï¿½ï¿½ï¿½
     } //6
 }

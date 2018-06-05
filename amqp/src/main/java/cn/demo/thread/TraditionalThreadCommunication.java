@@ -1,4 +1,4 @@
-package cn.itcast.thread;
+package cn.demo.thread;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

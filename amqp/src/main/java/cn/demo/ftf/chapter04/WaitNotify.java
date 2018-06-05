@@ -1,7 +1,7 @@
 /**
  * 
  */
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,9 +25,9 @@ public class WaitNotify {
 
     static class Wait implements Runnable {
         public void run() {
-            // ¼ÓËø£¬ÓµÓÐlockµÄMonitor
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½lockï¿½ï¿½Monitor
             synchronized (lock) {
-                // µ±Ìõ¼þ²»Âú×ãÊ±£¬¼ÌÐøwait£¬Í¬Ê±ÊÍ·ÅÁËlockµÄËø
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½waitï¿½ï¿½Í¬Ê±ï¿½Í·ï¿½ï¿½ï¿½lockï¿½ï¿½ï¿½ï¿½
                 while (flag) {
                     try {
                         System.out.println(Thread.currentThread() + " flag is true. wait @ "
@@ -36,7 +36,7 @@ public class WaitNotify {
                     } catch (InterruptedException e) {
                     }
                 }
-                // Ìõ¼þÂú×ãÊ±£¬Íê³É¹¤×÷
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½
                 System.out.println(Thread.currentThread() + " flag is false. running @ "
                                    + new SimpleDateFormat("HH:mm:ss").format(new Date()));
             }
@@ -45,16 +45,16 @@ public class WaitNotify {
 
     static class Notify implements Runnable {
         public void run() {
-            // ¼ÓËø£¬ÓµÓÐlockµÄMonitor
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½lockï¿½ï¿½Monitor
             synchronized (lock) {
-                // »ñÈ¡lockµÄËø£¬È»ºó½øÐÐÍ¨Öª£¬Í¨ÖªÊ±²»»áÊÍ·ÅlockµÄËø£¬
-                // Ö±µ½µ±Ç°Ïß³ÌÊÍ·ÅÁËlockºó£¬WaitThread²ÅÄÜ´Ówait·½·¨ÖÐ·µ»Ø
+                // ï¿½ï¿½È¡lockï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½Í¨Öªï¿½ï¿½Í¨ÖªÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½lockï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                // Ö±ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ß³ï¿½ï¿½Í·ï¿½ï¿½ï¿½lockï¿½ï¿½WaitThreadï¿½ï¿½ï¿½Ü´ï¿½waitï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½
                 System.out.println(Thread.currentThread() + " hold lock. notify @ " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
                 lock.notifyAll();
                 flag = false;
                 SleepUtils.second(5);
             }
-            // ÔÙ´Î¼ÓËø
+            // ï¿½Ù´Î¼ï¿½ï¿½ï¿½
             synchronized (lock) {
                 System.out.println(Thread.currentThread() + " hold lock again. sleep @ "
                                    + new SimpleDateFormat("HH:mm:ss").format(new Date()));

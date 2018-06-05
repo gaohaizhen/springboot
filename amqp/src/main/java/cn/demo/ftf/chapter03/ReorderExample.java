@@ -1,4 +1,4 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 class ReorderExample {
     int     a    = 0;
@@ -12,7 +12,7 @@ class ReorderExample {
     public void reader() {
         if (flag) { //3
             int i = a * a; //4
-            //s¡­¡­
+            //sï¿½ï¿½ï¿½ï¿½
         }
     }
 }

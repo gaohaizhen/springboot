@@ -1,17 +1,17 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 class VolatileFeaturesExample {
-    volatile long vl = 0L; //Ê¹ÓÃvolatileÉùÃ÷64Î»µÄlongÐÍ±äÁ¿
+    volatile long vl = 0L; //Ê¹ï¿½ï¿½volatileï¿½ï¿½ï¿½ï¿½64Î»ï¿½ï¿½longï¿½Í±ï¿½ï¿½ï¿½
 
     public void set(long l) {
-        vl = l; //µ¥¸övolatile±äÁ¿µÄÐ´
+        vl = l; //ï¿½ï¿½ï¿½ï¿½volatileï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´
     }
 
     public void getAndIncrement() {
-        vl++; //¸´ºÏ£¨¶à¸ö£©volatile±äÁ¿µÄ¶Á/Ð´
+        vl++; //ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½volatileï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½/Ð´
     }
 
     public long get() {
-        return vl; //µ¥¸övolatile±äÁ¿µÄ¶Á
+        return vl; //ï¿½ï¿½ï¿½ï¿½volatileï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½
     }
 }

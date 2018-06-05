@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.io.IOException;
 import java.io.PipedReader;
@@ -12,7 +12,7 @@ public class Piped {
     public static void main(String[] args) throws Exception {
         PipedWriter out = new PipedWriter();
         PipedReader in = new PipedReader();
-        // ½«Êä³öÁ÷ºÍÊäÈëÁ÷½øĞĞÁ¬½Ó£¬·ñÔòÔÚÊ¹ÓÃÊ±»áÅ×³öIOException
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ê±ï¿½ï¿½ï¿½×³ï¿½IOException
         out.connect(in);
 
         Thread printThread = new Thread(new Print(in), "PrintThread");

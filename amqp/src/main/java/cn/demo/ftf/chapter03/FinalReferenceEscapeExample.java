@@ -1,4 +1,4 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 public class FinalReferenceEscapeExample {
 
@@ -6,8 +6,8 @@ public class FinalReferenceEscapeExample {
     static FinalReferenceEscapeExample obj;
 
     public FinalReferenceEscapeExample() {
-        i = 1; //1Ð´finalÓò
-        obj = this; //2 thisÒýÓÃÔÚ´Ë¡°ÒÝ³ö¡±
+        i = 1; //1Ð´finalï¿½ï¿½
+        obj = this; //2 thisï¿½ï¿½ï¿½ï¿½ï¿½Ú´Ë¡ï¿½ï¿½Ý³ï¿½ï¿½ï¿½
     }
 
     public static void writer() {

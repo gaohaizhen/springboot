@@ -1,4 +1,4 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 class VolatileBarrierExample {
     int          a;
@@ -6,12 +6,12 @@ class VolatileBarrierExample {
     volatile int v2 = 2;
 
     void readAndWrite() {
-        int i = v1; //µÚÒ»¸övolatile¶Á
-        int j = v2; // µÚ¶þ¸övolatile¶Á
-        a = i + j; //ÆÕÍ¨Ð´
-        v1 = i + 1; // µÚÒ»¸övolatileÐ´
-        v2 = j * 2; //µÚ¶þ¸ö volatileÐ´
+        int i = v1; //ï¿½ï¿½Ò»ï¿½ï¿½volatileï¿½ï¿½
+        int j = v2; // ï¿½Ú¶ï¿½ï¿½ï¿½volatileï¿½ï¿½
+        a = i + j; //ï¿½ï¿½Í¨Ð´
+        v1 = i + 1; // ï¿½ï¿½Ò»ï¿½ï¿½volatileÐ´
+        v2 = j * 2; //ï¿½Ú¶ï¿½ï¿½ï¿½ volatileÐ´
     }
 
-    //¡­                 //ÆäËû·½·¨
+    //ï¿½ï¿½                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }

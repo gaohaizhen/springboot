@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,19 +10,19 @@ import java.util.concurrent.atomic.AtomicLong;
  * 6-20
  */
 public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> {
-    // Ïß³Ì³Ø×î´óÏÞÖÆÊý
+    // ï¿½ß³Ì³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private static final int      MAX_WORKER_NUMBERS     = 10;
-    // Ïß³Ì³ØÄ¬ÈÏµÄÊýÁ¿
+    // ï¿½ß³Ì³ï¿½Ä¬ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½
     private static final int      DEFAULT_WORKER_NUMBERS = 5;
-    // Ïß³Ì³Ø×îÐ¡µÄÊýÁ¿
+    // ï¿½ß³Ì³ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private static final int      MIN_WORKER_NUMBERS     = 1;
-    // ÕâÊÇÒ»¸ö¹¤×÷ÁÐ±í£¬½«»áÏòÀïÃæ²åÈë¹¤×÷
+    // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¹¤ï¿½ï¿½
     private final LinkedList<Job> jobs                   = new LinkedList<Job>();
-    // ¹¤×÷ÕßÁÐ±í
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
     private final List<Worker>    workers                = Collections.synchronizedList(new ArrayList<Worker>());
-    // ¹¤×÷ÕßÏß³ÌµÄÊýÁ¿
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ìµï¿½ï¿½ï¿½ï¿½ï¿½
     private int                   workerNum              = DEFAULT_WORKER_NUMBERS;
-    // Ïß³Ì±àºÅÉú³É
+    // ï¿½ß³Ì±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private AtomicLong            threadNum              = new AtomicLong();
 
     public DefaultThreadPool() {
@@ -36,7 +36,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
 
     public void execute(Job job) {
         if (job != null) {
-            // Ìí¼ÓÒ»¸ö¹¤×÷£¬È»ºó½øÐÐÍ¨Öª
+            // ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½Í¨Öª
             synchronized (jobs) {
                 jobs.addLast(job);
                 jobs.notify();
@@ -52,7 +52,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
 
     public void addWorkers(int num) {
         synchronized (jobs) {
-            // ÏÞÖÆÐÂÔöµÄWorkerÊýÁ¿²»ÄÜ³¬¹ý×î´óÖµ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Workerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
             if (num + this.workerNum > MAX_WORKER_NUMBERS) {
                 num = MAX_WORKER_NUMBERS - this.workerNum;
             }
@@ -66,7 +66,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
             if (num >= this.workerNum) {
                 throw new IllegalArgumentException("beyond workNum");
             }
-            // °´ÕÕ¸ø¶¨µÄÊýÁ¿Í£Ö¹Worker
+            // ï¿½ï¿½ï¿½Õ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£Ö¹Worker
             int count = 0;
             while (count < num) {
                 workers.get(count).shutdown();
@@ -80,7 +80,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
         return jobs.size();
     }
 
-    // ³õÊ¼»¯Ïß³Ì¹¤×÷Õß
+    // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ß³Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½
     private void initializeWokers(int num) {
         for (int i = 0; i < num; i++) {
             Worker worker = new Worker();
@@ -90,33 +90,33 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
         }
     }
 
-    // ¹¤×÷Õß£¬¸ºÔðÏû·ÑÈÎÎñ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     class Worker implements Runnable {
-        // ÊÇ·ñ¹¤×÷
+        // ï¿½Ç·ï¿½ï¿½ï¿½
         private volatile boolean running = true;
 
         public void run() {
             while (running) {
                 Job job = null;
                 synchronized (jobs) {
-                    // Èç¹û¹¤×÷ÕßÁÐ±íÊÇ¿ÕµÄ£¬ÄÇÃ´¾Íwait
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Ç¿ÕµÄ£ï¿½ï¿½ï¿½Ã´ï¿½ï¿½wait
                     while (jobs.isEmpty()) {
                         try {
                             jobs.wait();
                         } catch (InterruptedException ex) {
-                            // ¸ÐÖªµ½Íâ²¿¶ÔWorkerThreadµÄÖÐ¶Ï²Ù×÷£¬·µ»Ø
+                            // ï¿½ï¿½Öªï¿½ï¿½ï¿½â²¿ï¿½ï¿½WorkerThreadï¿½ï¿½ï¿½Ð¶Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                             Thread.currentThread().interrupt();
                             return;
                         }
                     }
-                    // È¡³öÒ»¸öJob
+                    // È¡ï¿½ï¿½Ò»ï¿½ï¿½Job
                     job = jobs.removeFirst();
                 }
                 if (job != null) {
                     try {
                         job.run();
                     } catch (Exception ex) {
-                        // ºöÂÔJobÖ´ÐÐÖÐµÄException
+                        // ï¿½ï¿½ï¿½ï¿½JobÖ´ï¿½ï¿½ï¿½Ðµï¿½Exception
                     }
                 }
             }

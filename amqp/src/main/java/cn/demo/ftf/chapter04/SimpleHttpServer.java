@@ -1,7 +1,7 @@
 /**
  * 
  */
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -18,12 +18,12 @@ import java.net.Socket;
  * 6-21
  */
 public class SimpleHttpServer {
-    // ´¦ÀíHttpRequestµÄÏß³Ì³Ø
+    // ï¿½ï¿½ï¿½ï¿½HttpRequestï¿½ï¿½ï¿½ß³Ì³ï¿½
     static ThreadPool<HttpRequestHandler> threadPool = new DefaultThreadPool<HttpRequestHandler>(11);
-    // SimpleHttpServerµÄ¸ùÂ·¾¶
+    // SimpleHttpServerï¿½Ä¸ï¿½Â·ï¿½ï¿½
     static String                         basePath;
     static ServerSocket                   serverSocket;
-    // ·þÎñ¼àÌý¶Ë¿Ú
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½
     static int                            port       = 8080;
 
     public static void setPort(int port) {
@@ -38,12 +38,12 @@ public class SimpleHttpServer {
         }
     }
 
-    // Æô¶¯SimpleHttpServer
+    // ï¿½ï¿½ï¿½ï¿½SimpleHttpServer
     public static void start() throws Exception {
         serverSocket = new ServerSocket(port);
         Socket socket = null;
         while ((socket = serverSocket.accept()) != null) {
-            // ½ÓÊÕÒ»¸ö¿Í»§¶ËSocket£¬Éú³ÉÒ»¸öHttpRequestHandler£¬·ÅÈëÏß³Ì³ØÖ´ÐÐ
+            // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½Socketï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½HttpRequestHandlerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì³ï¿½Ö´ï¿½ï¿½
             threadPool.execute(new HttpRequestHandler(socket));
         }
         serverSocket.close();
@@ -67,10 +67,10 @@ public class SimpleHttpServer {
             try {
                 reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String header = reader.readLine();
-                // ÓÉÏà¶ÔÂ·¾¶¼ÆËã³ö¾ø¶ÔÂ·¾¶
+                // ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
                 String filePath = basePath + header.split(" ")[1];
                 out = new PrintWriter(socket.getOutputStream());
-                // Èç¹ûÇëÇó×ÊÔ´µÄºó×ºÎªjpg»òÕßico£¬Ôò¶ÁÈ¡×ÊÔ´²¢Êä³ö
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½Äºï¿½×ºÎªjpgï¿½ï¿½ï¿½ï¿½icoï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (filePath.endsWith("jpg") || filePath.endsWith("ico")) {
                     in = new FileInputStream(filePath);
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -106,14 +106,14 @@ public class SimpleHttpServer {
         }
     }
 
-    // ¹Ø±ÕÁ÷»òÕßSocket
+    // ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Socket
     private static void close(Closeable... closeables) {
         if (closeables != null) {
             for (Closeable closeable : closeables) {
                 try {
                     closeable.close();
                 } catch (Exception ex) {
-                    // ºöÂÔ
+                    // ï¿½ï¿½ï¿½ï¿½
                 }
             }
         }

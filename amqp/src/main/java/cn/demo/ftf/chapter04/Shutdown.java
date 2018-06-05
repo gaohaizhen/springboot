@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.util.concurrent.TimeUnit;
 
@@ -10,13 +10,13 @@ public class Shutdown {
         Runner one = new Runner();
         Thread countThread = new Thread(one, "CountThread");
         countThread.start();
-        // Ë¯Ãß1Ãë£¬mainÏß³Ì¶ÔCountThread½øÐÐÖÐ¶Ï£¬Ê¹CountThreadÄÜ¹»¸ÐÖªÖÐ¶Ï¶ø½áÊø
+        // Ë¯ï¿½ï¿½1ï¿½ë£¬mainï¿½ß³Ì¶ï¿½CountThreadï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï£ï¿½Ê¹CountThreadï¿½Ü¹ï¿½ï¿½ï¿½Öªï¿½Ð¶Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½
         TimeUnit.SECONDS.sleep(1);
         countThread.interrupt();
         Runner two = new Runner();
         countThread = new Thread(two, "CountThread");
         countThread.start();
-        // Ë¯Ãß1Ãë£¬mainÏß³Ì¶ÔRunner two½øÐÐÈ¡Ïû£¬Ê¹CountThreadÄÜ¹»¸ÐÖªonÎªfalse¶ø½áÊø
+        // Ë¯ï¿½ï¿½1ï¿½ë£¬mainï¿½ß³Ì¶ï¿½Runner twoï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê¹CountThreadï¿½Ü¹ï¿½ï¿½ï¿½ÖªonÎªfalseï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         TimeUnit.SECONDS.sleep(1);
         two.cancel();
     }

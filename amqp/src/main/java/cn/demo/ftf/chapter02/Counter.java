@@ -2,7 +2,7 @@
  * Alipay.com Inc.
  * Copyright (c) 2004-2015 All Rights Reserved.
  */
-package chapter02;
+package cn.demo.ftf.chapter02;
 
 import java.util.ArrayList;
 import java.util.List;

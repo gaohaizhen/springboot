@@ -1,21 +1,21 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 /**
  * 6-19
  */
 public interface ThreadPool<Job extends Runnable> {
-    // 执行一个Job，这个Job需要实现Runnable
+    // 执锟斤拷一锟斤拷Job锟斤拷锟斤拷锟絁ob锟斤拷要实锟斤拷Runnable
     void execute(Job job);
 
-    // 关闭线程池
+    // 锟截憋拷锟竭程筹拷
     void shutdown();
 
-    // 增加工作者线程
+    // 锟斤拷锟接癸拷锟斤拷锟斤拷锟竭筹拷
     void addWorkers(int num);
 
-    // 减少工作者线程
+    // 锟斤拷锟劫癸拷锟斤拷锟斤拷锟竭筹拷
     void removeWorker(int num);
 
-    // 得到正在等待执行的任务数量
+    // 锟矫碉拷锟斤拷锟节等达拷执锟叫碉拷锟斤拷锟斤拷锟斤拷锟斤拷
     int getJobSize();
 }

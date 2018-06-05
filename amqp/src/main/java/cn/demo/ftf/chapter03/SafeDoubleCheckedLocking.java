@@ -1,4 +1,4 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 public class SafeDoubleCheckedLocking {
     private volatile static Instance instance;
@@ -7,7 +7,7 @@ public class SafeDoubleCheckedLocking {
         if (instance == null) {
             synchronized (SafeDoubleCheckedLocking.class) {
                 if (instance == null)
-                    instance = new Instance();//instance为volatile，现在没问题了
+                    instance = new Instance();//instance为volatile锟斤拷锟斤拷锟斤拷没锟斤拷锟斤拷锟斤拷
             }
         }
         return instance;

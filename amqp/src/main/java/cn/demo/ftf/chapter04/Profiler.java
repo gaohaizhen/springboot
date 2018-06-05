@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.util.concurrent.TimeUnit;
 
@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
  * 6-15
  */
 public class Profiler {
-    // µÚÒ»´Îget()·½·¨µ÷ÓÃÊ±»á½øÐÐ³õÊ¼»¯£¨Èç¹ûset·½·¨Ã»ÓÐµ÷ÓÃ£©£¬Ã¿¸öÏß³Ì»áµ÷ÓÃÒ»´Î
+    // ï¿½ï¿½Ò»ï¿½ï¿½get()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ð³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½setï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ðµï¿½ï¿½Ã£ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ß³Ì»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
     private static final ThreadLocal<Long> TIME_THREADLOCAL = new ThreadLocal<Long>() {
                                                                 protected Long initialValue() {
                                                                     return System.currentTimeMillis();

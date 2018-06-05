@@ -1,4 +1,4 @@
-package chapter05;
+package cn.demo.ftf.chapter05;
 
 import java.util.HashMap;
 import java.util.Map;

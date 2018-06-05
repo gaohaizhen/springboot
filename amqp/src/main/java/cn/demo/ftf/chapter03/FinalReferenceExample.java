@@ -1,23 +1,23 @@
-package chapter03;
+package cn.demo.ftf.chapter03;
 
 public class FinalReferenceExample {
-    final int[]                  intArray; //finalÊÇÒýÓÃÀàÐÍ
+    final int[]                  intArray; //finalï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     static FinalReferenceExample obj;
 
-    public FinalReferenceExample() { //¹¹Ôìº¯Êý
+    public FinalReferenceExample() { //ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
         intArray = new int[1]; //1
         intArray[0] = 1; //2
     }
 
-    public static void writerOne() { //Ð´Ïß³ÌAÖ´ÐÐ
+    public static void writerOne() { //Ð´ï¿½ß³ï¿½AÖ´ï¿½ï¿½
         obj = new FinalReferenceExample(); //3
     }
 
-    public static void writerTwo() { //Ð´Ïß³ÌBÖ´ÐÐ
+    public static void writerTwo() { //Ð´ï¿½ß³ï¿½BÖ´ï¿½ï¿½
         obj.intArray[0] = 2; //4
     }
 
-    public static void reader() { //¶ÁÏß³ÌCÖ´ÐÐ
+    public static void reader() { //ï¿½ï¿½ï¿½ß³ï¿½CÖ´ï¿½ï¿½
         if (obj != null) { //5
             int temp1 = obj.intArray[0]; //6
         }

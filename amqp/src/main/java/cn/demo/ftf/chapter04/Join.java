@@ -1,4 +1,4 @@
-package chapter04;
+package cn.demo.ftf.chapter04;
 
 import java.util.concurrent.TimeUnit;
 
@@ -9,7 +9,7 @@ public class Join {
     public static void main(String[] args) throws Exception {
         Thread previous = Thread.currentThread();
         for (int i = 0; i < 10; i++) {
-            // Ã¿¸öÏß³ÌÓµÓÐÇ°Ò»¸öÏß³ÌµÄÒýÓÃ£¬ÐèÒªµÈ´ýÇ°Ò»¸öÏß³ÌÖÕÖ¹£¬²ÅÄÜ´ÓµÈ´ýÖÐ·µ»Ø
+            // Ã¿ï¿½ï¿½ï¿½ß³ï¿½Óµï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½ß³Ìµï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Òªï¿½È´ï¿½Ç°Ò»ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½Ü´ÓµÈ´ï¿½ï¿½Ð·ï¿½ï¿½ï¿½
             Thread thread = new Thread(new Domino(previous), String.valueOf(i));
             thread.start();
             previous = thread;
